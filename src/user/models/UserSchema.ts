@@ -1,21 +1,36 @@
-import { Document } from "mongoose";
+import { Schema } from 'mongoose'
+import mongooseAggregatePaginate from 'mongoose-aggregate-paginate'
 
-export interface UserSchema extends Document {
-    email: string
-    document: string
-    name: string
-    password: string
-    address: Address
-    sex: string
-}
+const UserSchema = new Schema(
+    {
+        email: {
+            type: String,
+            searchable: true,
+            unique: true
+        },
+        document: {
+            type: String,
+            searchable: true,
+            unique: true
+        },
+        password: {
+            type: String,
+        },
+        name: { type: String, searchable: true },
+        type: {
+            type: String,
+            enum: ['participant', 'host']
+        },
+    },
+    {
+        timestamps: true,
+        collation: {
+            locale: 'pt',
+            strength: 1
+        }
+    }
+)
 
-interface Address {
-    country: string
-    region: string
-    state: string
-    city: string
-    neighboorhood?: string
-    street: string
-    number: string
-    complement: string
-}
+UserSchema.plugin(mongooseAggregatePaginate)
+
+export { UserSchema }

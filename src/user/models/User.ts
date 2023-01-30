@@ -1,12 +1,13 @@
 import { Document } from "mongoose";
 
-export interface UserSchema extends Document {
+export interface User extends Document {
     email: string
     document: string
     name: string
     password: string
     address: Address
     sex: string
+    type: UserType
 }
 
 interface Address {
@@ -18,4 +19,9 @@ interface Address {
     street: string
     number: string
     complement: string
+}
+
+enum UserType {
+    participant = 'participant',
+    host = 'host'
 }
