@@ -1,7 +1,7 @@
 import { Address } from "../../../shared/models/address/address"
+import { Document } from 'mongoose'
 
-
-export interface IUser extends Document {
+export class User extends Document {
     email: string
     document: string
     name: string
@@ -9,33 +9,20 @@ export interface IUser extends Document {
     address: Address
     sex: string
     type: UserType
+
+    constructor(email: string, document: string, name: string, password: string, address: Address, sex: string, type: UserType) {
+        super()
+        this.email = email;
+        this.document = document;
+        this.name = name;
+        this.password = password;
+        this.address = address;
+        this.sex = sex;
+        this.type = type;
+    }
 }
 
 export enum UserType {
     client = 'client',
     host = 'host'
 }
-/*export class User implements IUser {
-    public email: string
-    public document: string
-    public name: string
-    public password: string
-    public address: Address
-    public sex: string
-    public type: UserType
-
-    constructor(email: string, document: string, name: string, password: string, address: Address, sex: string, type: UserType) {
-        this.email = email
-        this.document = document
-        this.name = name
-        this.password = password
-        this.address = address
-        this.sex = sex
-        this.type = type
-    }
-
-    validate(): boolean {
-        //TODO: validate
-        return true
-    }
-}*/

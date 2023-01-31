@@ -1,7 +1,7 @@
 export const timestamp = {
     timestamps: true,
     collation: {
-        locale: 'pt_BR',
+        locale: 'pt',
         strength: 1
     }
 }

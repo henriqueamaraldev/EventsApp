@@ -1,5 +1,5 @@
 import { Address } from "../../../../shared/models/address/address"
-import { UserType } from "../../entities/User"
+import { UserType } from "../../entities/user"
 
 export interface IPostUserRequest {
     email: string
@@ -8,4 +8,5 @@ export interface IPostUserRequest {
     password: string
     address: Address
     type: UserType
+    sex: string
 }

@@ -11,10 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\src\\user\\controllers\\PostUser.ts",
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ]
+            "program": "${file}"
         }
     ]
 }

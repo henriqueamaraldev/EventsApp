@@ -1,8 +1,10 @@
 import { Express } from 'express'
-import { UserRoutes } from './user/controllers'
+import { UserController } from './user/controllers/UserController'
 
-const urlBase = '/api/v1'
+const userController = new UserController()
+
+const urlBase = '/api/v1/'
 
 export const allRoutes = (server: Express) => {
-    server.use(`${urlBase}/users`, UserRoutes)
+    server.use(`${urlBase}users`, userController.Routes)
 }
