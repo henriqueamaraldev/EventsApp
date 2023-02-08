@@ -6,7 +6,7 @@ import { IGetUsersRequest } from "../models/http/request/IGetUsersRequest";
 import { IPostUserRequest } from "../models/http/request/IPostUserRequest";
 
 export class UserServices {
-    private _userCollection = mongoose.model<User>("User", UserSchema);;
+    private _userCollection = mongoose.model<User>("User", UserSchema);
 
     readonly ListUsers = async (request: IGetUsersRequest) => {
 

@@ -20,6 +20,7 @@ export class User extends Document {
         this.sex = sex;
         this.type = type;
     }
+
 }
 
 export enum UserType {
